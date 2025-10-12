@@ -41,18 +41,16 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
   // }
 
   
-  const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = (values) => {
-  startTransition((): void => {
-    (async () => {
-      const res = await updateUserAddress(values);
+  const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = async (values) => {
+  const res = await updateUserAddress(values);
 
-      if (!res.success) {
-        toast.error(res.message || "Something went wrong");
-        return;
-      }
+  if (!res.success) {
+    toast.error(res.message || "Something went wrong");
+    return;
+  }
 
-      router.push("/payment-method");
-    })();
+  startTransition(() => {
+    router.push("/payment-method");
   });
 };
 
