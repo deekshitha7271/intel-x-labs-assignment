@@ -40,8 +40,10 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
   //   })
   // }
 
+  
   const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = (values) => {
-    startTransition(async () => {
+  startTransition((): void => {
+    (async () => {
       const res = await updateUserAddress(values);
 
       if (!res.success) {
@@ -50,8 +52,9 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
       }
 
       router.push("/payment-method");
-    });
-  };
+    })();
+  });
+};
 
 
     return (<>
