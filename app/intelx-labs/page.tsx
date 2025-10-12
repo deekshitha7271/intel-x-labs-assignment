@@ -25,7 +25,7 @@ export default function HomePage() {
     queryKey: ["characters"],
     queryFn: fetchCharacters,
     getNextPageParam: (lastPage) => lastPage.info.next ?? undefined,
-    initialPageParam: "1",
+    initialPageParam: "https://rickandmortyapi.com/api/character",
   });
 
   const loadMoreRef = useRef<HTMLDivElement | null>(null);

@@ -3,6 +3,7 @@ import {hashSync} from 'bcrypt-ts-edge'
 const sampleData = {
   users:[
     {
+      //this is admin user
       name: 'Deekshitha',
       email:'deekshithapachigolla7271@gmail.com',
       password:hashSync('727106',10),//salt rounds:-salt is random value added to password
@@ -13,7 +14,7 @@ const sampleData = {
     {
       name: 'Ravikumar',
       email:'ravikumar@gmail.com',
-      password:hashSync('123456',10),//salt rounds:-salt is random value added to password
+      password:hashSync('191919',10),//salt rounds:-salt is random value added to password
       //befor it to make more secure.even if two users have the same password,
       //their hashedoutputs are different.rounds is the computational complexity of hashing process.
       role:'user'
@@ -37,7 +38,7 @@ category:"Women's wear,Fusion",
       numReviews: 10,
       stock: 5,
       isFeatured: true,
-      banner: 'banner-1.jpg',
+      banner: '/images/banner-1.jpg',
     },
     
     {
@@ -54,7 +55,7 @@ category:"Women's wear,Fusion",
       rating: 4.6,
       numReviews: 12,
       stock: 8,
-      isFeatured: true,
+      isFeatured: false,
       banner: null,
     },
     {
@@ -72,7 +73,7 @@ category:"Women's wear,Fusion",
       numReviews: 8,
       stock: 10,
       isFeatured: true,
-      banner: 'banner-2.jpg',
+      banner: '/images/banner-2.jpg',
     },
     {
       name: "Orange & Pink Silk Cotton Saree",
@@ -156,8 +157,9 @@ category:"Women's wear,Fusion",
       rating: 4.5,
       numReviews: 10,
       stock: 5,
-      isFeatured: true,
-      banner: 'banner-1.jpg',
+      isFeatured: false,
+      banner:null,
+      //banner: '/images/banner-1.jpg',
     },
     
   ],

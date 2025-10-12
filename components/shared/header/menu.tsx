@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { EllipsisVertical, ShoppingCart,UserIcon } from "lucide-react";
 import { Sheet,SheetTrigger,SheetContent,SheetTitle,SheetDescription } from "@/components/ui/sheet";
+import UserButton from "./user-button";
 const Menu = () => {
     return <div className="flex justify-end gap-3">
          <nav className="hidden md:flex w-full max-w-xs gap-1">
@@ -13,12 +14,7 @@ const Menu = () => {
                     </Link>
 
                 </Button>
-                <Button asChild >
-                    <Link href='/sign-in'>
-                    <UserIcon/> Sign In
-                    </Link>
-
-                </Button>
+                <UserButton/>
 
         </nav>  
         <nav className="md:hidden">
@@ -35,15 +31,15 @@ const Menu = () => {
                         </Link>
 
                     </Button>
-                    <Button asChild >
-                    <Link href='/sign-in'>
-                    <UserIcon/> Sign In
-                    </Link>
-
-                </Button>
-                    <SheetDescription></SheetDescription>
+                    <UserButton/>
+                    <SheetDescription>
+                        
+                    </SheetDescription>
+                    
                 </SheetContent>
+             
             </Sheet>
+               
             </nav> 
     </div>;
 }

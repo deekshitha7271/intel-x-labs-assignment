@@ -5,10 +5,11 @@ import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/lib/constants";
 const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from "next-themes";
 import Providers from "./Providers";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | Prostore`,
+    template: `%s | Klyra`,
     default: APP_NAME,
   },
   description: APP_DESCRIPTION,
@@ -31,6 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster richColors position="bottom-right" />
           </ThemeProvider>
         
       </body>
