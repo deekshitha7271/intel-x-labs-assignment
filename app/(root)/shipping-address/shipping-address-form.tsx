@@ -25,18 +25,34 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
   });
 
   const [isPending,startTransition]=useTransition();
+  
+  
 
-  const onSubmit:SubmitHandler<z.infer<typeof shippingAddressSchema>> = async (values:any)=>{
-    startTransition(async ()=>{
+  // const onSubmit:SubmitHandler<z.infer<typeof shippingAddressSchema>> = async (values)=>{
+  //   startTransition(async ()=>{
+  //     const res = await updateUserAddress(values);
+
+  //     if(!res.success){
+  //       toast.error(res.message || "Something went wrong")
+        
+  //     }
+  //     router.push('/payment-method');
+  //   })
+  // }
+
+  const onSubmit: SubmitHandler<z.infer<typeof shippingAddressSchema>> = (values) => {
+    startTransition(async () => {
       const res = await updateUserAddress(values);
 
-      if(!res.success){
-        toast.error(res.message || "Something went wrong")
-        
+      if (!res.success) {
+        toast.error(res.message || "Something went wrong");
+        return;
       }
-      router.push('/payment-method');
-    })
-  }
+
+      router.push("/payment-method");
+    });
+  };
+
 
     return (<>
     <div className="max-w-md mx-auto space-y-4">
