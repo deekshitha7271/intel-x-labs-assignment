@@ -10,14 +10,22 @@ export const metadata:Metadata={
     title:'Shipping Address'
 }
 const ShippingAddressPage = async() => {
-    const cart =await getMyCart();
-    if(!cart||cart.items.length===0)redirect('/cart');
-    const session = await auth();
-    const userId=session?.user?.id;
-    if(!userId) throw new Error('No user ID');
+    // const cart =await getMyCart();
+    // if(!cart||cart.items.length===0)redirect('/cart');
+    // const session = await auth();
+    // const userId=session?.user?.id;
+    // if(!userId) throw new Error('No user ID');
 
-    const user = await getUserById(userId);
-    
+    // const user = await getUserById(userId);
+      const session = await auth();
+  if (!session?.user?.id) redirect('/sign-in');  // ✅ check first
+
+  const cart = await getMyCart(); // ✅ call only for logged user
+  if (!cart || cart.items.length === 0) redirect('/cart');
+
+  const user = await getUserById(session.user.id);
+
+
 
 
     return ( 
