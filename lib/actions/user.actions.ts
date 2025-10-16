@@ -2,8 +2,9 @@
 
 import { shippingAddressSchema, signInFormSchema,signUpFormSchema } from "../validators";
 
-import {auth, signIn,signOut} from "@/auth"//this is coming from nextauth
+import {auth, signIn} from "@/auth"//this is coming from nextauth
 
+// import { signOut } from "next-auth/react";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { hashSync } from "bcrypt-ts-edge";
 import { prisma } from "@/db/prisma";
@@ -35,9 +36,9 @@ export async function signInWithCredentials(prevState:unknown,formData:FormData)
 
 //Sign user out
 
-export async function signOutUser(){
-    await signOut();
-}
+// export async function signOutUser(){
+//     await signOut();
+// }
 
 //Sign up user
 export async function signUpUser(prevState:unknown,formData:FormData){

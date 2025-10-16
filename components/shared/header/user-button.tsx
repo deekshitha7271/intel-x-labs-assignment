@@ -1,12 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"
+
 import Link from "next/link";
-import { auth } from "@/auth";//to know if user is logged in or not
-import { signOutUser } from "@/lib/actions/user.actions";
+//to know if user is logged in or not
 import { Button } from "@/components/ui/button";
 import { DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuLabel,DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { UserIcon } from "lucide-react";
+import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+// import { config } from "@/auth";
 
-const UserButton = async() => {
-    const session=await auth();
+const UserButton = () => {
+
+    const {data:session} = useSession();
+
+
     if(!session){
         return (
             <Button asChild>
@@ -17,6 +25,12 @@ const UserButton = async() => {
         )
     }
     const firstInitial=session.user?.name?.charAt(0).toUpperCase() ?? 'U';
+  
+    const handleLogout=async(e:React.MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault();
+        await signOut();
+    }
+  
     return ( 
     <div className="flex gap-2 items-center">
        <DropdownMenu>
@@ -40,12 +54,10 @@ const UserButton = async() => {
                 </div>
             </DropdownMenuLabel>
                 <DropdownMenuItem className="p-0 mb-1">
-                    <form action={signOutUser} className="w-full">
-                        <Button className="w-full py-4 px-2 h-4 justify-start" variant='ghost'>
+                  
+                        <Button onClick={handleLogout} className="w-full py-4 px-2 h-4 justify-start" variant='ghost'>
                             Sign Out
                         </Button>
-
-                    </form>
                 </DropdownMenuItem>
         </DropdownMenuContent>
         </DropdownMenu> 
