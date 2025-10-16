@@ -24,7 +24,7 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
 
   });
 
-  const [isPending,startTransition]=useTransition();
+  const [isPending,startTransition]= useTransition();
   
   
 

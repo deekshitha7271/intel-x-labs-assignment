@@ -58,9 +58,10 @@ Why: instant UX feedback and prevents double submits. */
                <SignInButton/>
             </div>
 
-            {data&&!data.success&&(
+            {data && typeof data === 'object' && data !== null && 'message' in data && !('success' in data) ? null :
+                data && typeof data === 'object' && data !== null && !(data as { success: boolean }).success && (
                 <div className="text-center text-destructive">
-                    {data.message}
+                    {(data as { message: string }).message}
                 </div>
             )}
             <div className="text-sm text-center text-muted-foreground">
