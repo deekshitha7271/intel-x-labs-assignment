@@ -10,4 +10,3 @@ export default function AuthLayout({
   );
 }
 
-//FirstName_LastName_AD_assign1.zip.

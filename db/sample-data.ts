@@ -23,10 +23,8 @@ const sampleData = {
   products: [
     {
       name: 'Navy Blue Ethnic Midi Dress',
-
-slug: 'navy-blue-ethnic-midi-dress',
-
-category:"Women's wear,Fusion",
+      slug: 'navy-blue-ethnic-midi-dress',
+      category:"Women's wear,Fusion",
       description: 'Step into effortless elegance with this navy blue ethnic midi dress. Designed with a sleeveless bodice and flared silhouette, it combines the charm of traditional detailing with modern comfort. The vibrant border at the hem and subtle pocket accents add a unique touch of style. Paired with white sneakers or flats, this dress is perfect for casual outings, festive gatherings, or everyday chic wear.',
       images: [
         '/images/sample-products/Rashmika-1.jpeg',

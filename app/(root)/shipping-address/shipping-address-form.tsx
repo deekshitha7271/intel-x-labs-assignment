@@ -50,7 +50,7 @@ const ShippingAddressForm = ({address}:{address:ShippingAddress}) => {
   }
 
   startTransition(() => {
-    router.push("/payment-method");
+    router.push("/place-order");
   });
 };
 

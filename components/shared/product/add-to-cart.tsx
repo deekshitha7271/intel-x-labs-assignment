@@ -1,37 +1,3 @@
-// 'use client';
-// import { Button } from "@/components/ui/button";
-// import { useRouter } from "next/router";
-// import { CartItem } from "@/types";
-// import { Plus } from "lucide-react";
-// import { toast } from "sonner";
-// import { Toaster } from "@/components/ui/sonner";
-// import { addItemToCart } from "@/lib/actions/cart.actions";
-// const AddToCart = ({item}:{item:CartItem}) => {
-//     const router = useRouter();
-//     const handleAddToCart = async () => {
-//         try {
-//       const res = await addItemToCart(item);
-
-//       if (!res.success) {
-//         toast.error(res.message || "Something went wrong"); // ❌ error toast
-//         return;
-//       }
-
-      
-//       toast.success(`${item.name} added to cart`, {
-//         action: {
-//           label: "Go",
-//           onClick: () => router.push("/cart"),
-//         },
-//       });
-//     } catch (err) {
-//       toast.error("Unexpected error occurred");
-//     }
-//     }
-//     return ( <Button className="w-full" type='button' onClick={handleAddToCart}>Add To Cart</Button> );
-// }
- 
-// export default AddToCart;
 
 'use client'
 import { Button } from "@/components/ui/button"
@@ -109,3 +75,42 @@ const AddToCart = ({ cart, item }: { cart?: Cart, item: CartItem }) => {
 }
 
 export default AddToCart
+
+
+
+
+// 'use client';
+// import { Button } from "@/components/ui/button";
+// import { useRouter } from "next/router";
+// import { CartItem } from "@/types";
+// import { Plus } from "lucide-react";
+// import { toast } from "sonner";
+// import { Toaster } from "@/components/ui/sonner";
+// import { addItemToCart } from "@/lib/actions/cart.actions";
+// const AddToCart = ({item}:{item:CartItem}) => {
+//     const router = useRouter();
+//     const handleAddToCart = async () => {
+//         try {
+//       const res = await addItemToCart(item);
+
+//       if (!res.success) {
+//         toast.error(res.message || "Something went wrong"); // ❌ error toast
+//         return;
+//       }
+
+      
+//       toast.success(`${item.name} added to cart`, {
+//         action: {
+//           label: "Go",
+//           onClick: () => router.push("/cart"),
+//         },
+//       });
+//     } catch (err) {
+//       toast.error("Unexpected error occurred");
+//     }
+//     }
+//     return ( <Button className="w-full" type='button' onClick={handleAddToCart}>Add To Cart</Button> );
+// }
+ 
+// export default AddToCart;
+
